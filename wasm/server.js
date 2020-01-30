@@ -6,4 +6,4 @@ const app = express()
 app.use(express.static('public'))
 
 // Start server
-app.listen(2222, () => console.log('Server running of port 2222.'))
+app.listen(4200, () => console.log('Server running of port 4200.'))
