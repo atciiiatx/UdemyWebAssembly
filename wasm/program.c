@@ -1,5 +1,7 @@
+#include <string.h>
+
 extern void numLog(int n);
-extern void strLog(char *s);
+extern void strLog(char *s, int length);
 
 int main()
 {
@@ -18,5 +20,6 @@ void testNumLog(int x)
 
 void testStrLog()
 {
-	strLog("Hello from C!");
+	char *msg = "Hello from C!";
+	strLog(msg, strlen(msg));
 }
