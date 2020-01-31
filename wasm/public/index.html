@@ -8,14 +8,24 @@
 <body>
     <h1>WebAssembly Demo</h1>
     <script>
+        // Imports object
+        const imports = {
+            env: {
+                numLog: console.log,
+                strLog: console.log
+            }
+        }
         // Load WASM
-        WebAssembly.instantiateStreaming(fetch('/program.wasm')).then
+        WebAssembly.instantiateStreaming(fetch('/program.wasm'), imports).then
             (wasm => {
                 console.log('WASM Ready.');
                 // Make it accessible
                 window.wasm = wasm
-                console.log(WebAssembly.Module.exports(wasm.module))
+
+                // Test
                 console.log(wasm.instance.exports.getDoubleNumber(80))
+                wasm.instance.exports.testNumLog(77)
+                wasm.instance.exports.testStrLog()
             })
     </script>
 </body>
