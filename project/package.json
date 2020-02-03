@@ -1,0 +1,14 @@
+{
+  "name": "into-web-assembly",
+  "version": "1.0.0",
+  "description": "Udemy WebAssembly Course",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "A. T. Campbell, III <atcampbelliii@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
