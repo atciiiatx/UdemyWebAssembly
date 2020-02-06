@@ -23,15 +23,21 @@
         const canvas = document.getElementById('myCanvas')
         const context = canvas.getContext('2d')
 
-        const render = () => {
-            let circles = _getCircles()
-            console.log(`Got ${circles} circles`)
-
-            // Draw dircle
-            context.beginPath()
-            context.arc(300, 300, 150, 0, 2 * Math.PI)
-            context.fillStyle = 'blue'
-            context.fill()
+        const render = (numCircles) => {
+            console.log(`numCircles: ${numCircles} `)
+            for (let i = 0; i < numCircles; ++i) {
+                let x = _getX(i);
+                let y = _getY(i);
+                let r = _getRadius(i);
+                let cr = _getRed(i);
+                let cg = _getGreen(i);
+                let cb = _getBlue(i);
+                console.log(`radius ${i} = ${r}`)
+                context.beginPath()
+                context.arc(x, y, r, 0, 2 * Math.PI)
+                context.fillStyle = `rgba(${cr}, ${cg}, ${cb}, 1)`
+                context.fill();
+            }
             console.log('rendered')
 
             // Request next animation frame
