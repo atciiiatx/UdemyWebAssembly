@@ -25,6 +25,10 @@
 
         const render = (numCircles) => {
             console.log(`numCircles: ${numCircles} `)
+
+            const width = canvas.width
+            const height = canvas.height
+            context.clearRect(0, 0, width, height)
             for (let i = 0; i < numCircles; ++i) {
                 let x = _getX(i);
                 let y = _getY(i);
@@ -32,16 +36,17 @@
                 let cr = _getRed(i);
                 let cg = _getGreen(i);
                 let cb = _getBlue(i);
-                console.log(`radius ${i} = ${r}`)
+                //console.log(`radius ${i} = ${r}`)
                 context.beginPath()
                 context.arc(x, y, r, 0, 2 * Math.PI)
                 context.fillStyle = `rgba(${cr}, ${cg}, ${cb}, 1)`
                 context.fill();
             }
+            _incrementAnimation(width, height);
             console.log('rendered')
 
             // Request next animation frame
-            //window.requestAnimationFrame(render)
+            window.requestAnimationFrame(() => { render(numCircles); })
         }
     </script>
 </body>
